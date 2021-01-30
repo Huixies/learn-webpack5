@@ -1,55 +1,154 @@
-/******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
-/******/ 	var __webpack_modules__ = ([
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "/dist/";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ })
+/************************************************************************/
+/******/ ([
 /* 0 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_ms_button_ms_button_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 
-
-const msButton = new _components_ms_button_ms_button_js__WEBPACK_IMPORTED_MODULE_0__.default();
-msButton.render()
-
+var msButton = new _components_ms_button_ms_button_js__WEBPACK_IMPORTED_MODULE_0__["default"]();
+msButton.render();
 
 /***/ }),
 /* 1 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
-/* harmony export */ });
 /* harmony import */ var _ms_button_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
-class MsButton{
-    render() {
-        const button = document.createElement('button');
-        button.innerHTML = 'MSButton';
-        button.classList.add('ms-button');
-        const body = document.querySelector('body');
 
-        body.onclick = function () {
-            const p = document.createElement('p');
-            p.innerHTML = '写代码';
-            p.classList.add('ms-text')
-            body.appendChild(p)
-        }
-        body.appendChild(button)
+var MsButton = /*#__PURE__*/function () {
+  function MsButton() {
+    _classCallCheck(this, MsButton);
+
+    _defineProperty(this, "buttonCssClass", 'ms-button');
+  }
+
+  _createClass(MsButton, [{
+    key: "render",
+    value: function render() {
+      var button = document.createElement('button');
+      button.innerHTML = 'MSButton';
+      button.classList.add(this.buttonCssClass);
+      var body = document.querySelector('body');
+
+      body.onclick = function () {
+        var p = document.createElement('p');
+        p.innerHTML = '写代码';
+        p.classList.add('ms-text');
+        body.appendChild(p);
+      };
+
+      body.appendChild(button);
     }
-}
+  }]);
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MsButton);
+  return MsButton;
+}();
+
+/* harmony default export */ __webpack_exports__["default"] = (MsButton);
 
 /***/ }),
 /* 2 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
-/* harmony export */ });
 /* harmony import */ var _node_modules_style_loader_2_0_0_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
 /* harmony import */ var _node_modules_style_loader_2_0_0_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_2_0_0_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _node_modules_css_loader_5_0_1_css_loader_dist_cjs_js_node_modules_sass_loader_10_1_1_sass_loader_dist_cjs_js_ms_button_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
@@ -61,16 +160,17 @@ var options = {};
 options.insert = "head";
 options.singleton = false;
 
-var update = _node_modules_style_loader_2_0_0_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_5_0_1_css_loader_dist_cjs_js_node_modules_sass_loader_10_1_1_sass_loader_dist_cjs_js_ms_button_scss__WEBPACK_IMPORTED_MODULE_1__.default, options);
+var update = _node_modules_style_loader_2_0_0_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_5_0_1_css_loader_dist_cjs_js_node_modules_sass_loader_10_1_1_sass_loader_dist_cjs_js_ms_button_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_5_0_1_css_loader_dist_cjs_js_node_modules_sass_loader_10_1_1_sass_loader_dist_cjs_js_ms_button_scss__WEBPACK_IMPORTED_MODULE_1__.default.locals || {});
+/* harmony default export */ __webpack_exports__["default"] = (_node_modules_css_loader_5_0_1_css_loader_dist_cjs_js_node_modules_sass_loader_10_1_1_sass_loader_dist_cjs_js_ms_button_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 /* 3 */
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
 
 
 var isOldIE = function isOldIE() {
@@ -167,7 +267,7 @@ function insertStyleElement(options) {
   var attributes = options.attributes || {};
 
   if (typeof attributes.nonce === 'undefined') {
-    var nonce =  true ? __webpack_require__.nc : 0;
+    var nonce =  true ? __webpack_require__.nc : undefined;
 
     if (nonce) {
       attributes.nonce = nonce;
@@ -343,27 +443,26 @@ module.exports = function (list, options) {
 
 /***/ }),
 /* 4 */
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
-/* harmony export */ });
 /* harmony import */ var _node_modules_css_loader_5_0_1_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
 /* harmony import */ var _node_modules_css_loader_5_0_1_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_5_0_1_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
 // Imports
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_5_0_1_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".ms-button {\n  font-size: 20px;\n  padding: 7px 15px;\n  background-color: green;\n  color: white;\n  outline: none; }\n\n.ms-text {\n  color: red;\n  font-weight: bold; }\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.i, ".ms-button {\n  font-size: 20px;\n  padding: 7px 15px;\n  background-color: green;\n  color: white;\n  outline: none; }\n\n.ms-text {\n  color: red;\n  font-weight: bold; }\n", ""]);
 // Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+/* harmony default export */ __webpack_exports__["default"] = (___CSS_LOADER_EXPORT___);
 
 
 /***/ }),
 /* 5 */
-/***/ ((module) => {
+/***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
 
 
 /*
@@ -432,76 +531,4 @@ module.exports = function (cssWithMappingToString) {
 };
 
 /***/ })
-/******/ 	]);
-/************************************************************************/
-/******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
-/******/ 	
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/ 		// Check if module is in cache
-/******/ 		if(__webpack_module_cache__[moduleId]) {
-/******/ 			return __webpack_module_cache__[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			id: moduleId,
-/******/ 			// no module.loaded needed
-/******/ 			exports: {}
-/******/ 		};
-/******/ 	
-/******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/ 	
-/************************************************************************/
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => module['default'] :
-/******/ 				() => module;
-/******/ 			__webpack_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/define property getters */
-/******/ 	(() => {
-/******/ 		// define getter functions for harmony exports
-/******/ 		__webpack_require__.d = (exports, definition) => {
-/******/ 			for(var key in definition) {
-/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
-/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 				}
-/******/ 			}
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	(() => {
-/******/ 		__webpack_require__.o = (obj, prop) => Object.prototype.hasOwnProperty.call(obj, prop)
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/************************************************************************/
-/******/ 	// startup
-/******/ 	// Load entry module
-/******/ 	__webpack_require__(0);
-/******/ 	// This entry module used 'exports' so it can't be inlined
-/******/ })()
-;
+/******/ ]);
