@@ -1,4 +1,4 @@
-import './ms-button.css';
+import './ms-button.scss';
 
 class MsButton{
     render() {
