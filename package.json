@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.production.config.js",
-    "dev":"webpack --config webpack.dev.config.js"
+    "dev": "webpack serve --config webpack.dev.config.js"
   },
   "keywords": [],
   "author": "",
@@ -28,6 +28,7 @@
     "node-sass": "^5.0.0",
     "sass-loader": "^10.1.0",
     "style-loader": "^2.0.0",
-    "terser-webpack-plugin": "^5.1.1"
+    "terser-webpack-plugin": "^5.1.1",
+    "webpack-dev-server": "^3.11.2"
   }
 }

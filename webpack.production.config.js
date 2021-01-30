@@ -5,9 +5,12 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-    entry: './src/index.js',
+    entry: {
+        'ms-button': './src/ms-button.js',
+        'ms-image':'./src/ms-image.js'
+    },
     output: {
-        filename: 'bundle.[contenthash].js',
+        filename: '[name].[contenthash].js',
         path: path.resolve(__dirname, './dist'),
         publicPath:''
     },
@@ -49,7 +52,7 @@ module.exports = {
     plugins: [
         new TerserPlugin(),
         new MiniCssExtractPlugin({
-            filename:'styles.[contenthash].css'
+            filename:'[name].[contenthash].css'
         }),
         new CleanWebpackPlugin({
             cleanOnceBeforeBuildPatterns:['**/*',path.join(process.cwd(),'build/**/*')]

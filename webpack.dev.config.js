@@ -10,6 +10,13 @@ module.exports = {
         publicPath:''
     },
     mode: 'development',
+    devServer: {
+        contentBase: path.join(__dirname, './dist'),
+        compress: true,  //是否压缩
+        port: 9000,
+        open: true,  //自动打开
+        hot:true
+    },
     module: {
         rules: [
             {
