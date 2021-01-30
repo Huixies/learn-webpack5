@@ -58,10 +58,24 @@ module.exports = {
             cleanOnceBeforeBuildPatterns:['**/*',path.join(process.cwd(),'build/**/*')]
         }),
         new HtmlWebpackPlugin({
-            title: 'webpack5',
+            title: 'ms-button',
+            filename: 'ms-button.html',
+            template: 'index.html',
+            chunks:['ms-button'],
             meta: {
-                decription:'webpack5'
-            }
+                decription:'ms-button'
+            },
+            minify:false //不压缩
+        }),
+        new HtmlWebpackPlugin({
+            title: 'ms-image',
+            filename: 'ms-image.html',
+            template: 'index.html',
+            chunks:['ms-image'],
+            meta: {
+                decription:'ms-image'
+            },
+            minify:false
         })
     ]
 
