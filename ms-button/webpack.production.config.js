@@ -3,13 +3,16 @@ const TerserPlugin = require('terser-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { ModuleFederationPlugin } = require('webpack').container;
+
 
 module.exports = {
     entry: './src/index.js',
     output: {
         filename: '[name].[contenthash].js',
         path: path.resolve(__dirname, './dist'),
-        publicPath:'/static/'
+        publicPath:'http://localhost:9001/'
+
     },
     mode: 'production',
     optimization: {
@@ -23,7 +26,7 @@ module.exports = {
             {
                 test: /\.scss$/,
                 use: [
-                    MiniCssExtractPlugin.loader, 'css-loader',
+                    'style-loader', 'css-loader',
                     'sass-loader'
                 ]
             },
@@ -57,6 +60,13 @@ module.exports = {
             },
             minify:false //不压缩
         }),
+        new ModuleFederationPlugin({
+            name: 'MsButtonApp',
+            filename:'remoteEntry.js', //http://localhost:9001/remoteEntry.js
+            exposes: {
+                './MsButton':'./src/components/ms-button/ms-button.js'
+            }
+        })
        
     ]
 

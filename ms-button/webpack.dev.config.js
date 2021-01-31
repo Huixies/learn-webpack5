@@ -1,19 +1,21 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { ModuleFederationPlugin } = require('webpack').container;
+
 
 module.exports = {
     entry: './src/index.js',
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, './dist'),
-        publicPath:''
+        publicPath:'http://localhost:9001/'
     },
     mode: 'development',
     devServer: {
         contentBase: path.join(__dirname, './dist'),
         compress: true,  //是否压缩
-        port: 9000,
+        port: 9001,
         open: true,  //自动打开
         hot:true
     },
@@ -22,7 +24,7 @@ module.exports = {
             {
                 test: /\.scss$/,
                 use: [
-                    MiniCssExtractPlugin.loader, 'css-loader',
+                    "style-loader", 'css-loader',
                     'sass-loader'
                 ]
             },
@@ -47,6 +49,13 @@ module.exports = {
             title: 'webpack5',
             meta: {
                 decription:'webpack5'
+            }
+        }),
+        new ModuleFederationPlugin({
+            name: 'MsButtonApp',
+            filename:'remoteEntry.js', //http://localhost:9001/remoteEntry.js
+            exposes: {
+                './MsButton':'./src/components/ms-button/ms-button.js'
             }
         })
     ]

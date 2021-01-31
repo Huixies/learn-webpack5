@@ -3,13 +3,14 @@ const TerserPlugin = require('terser-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const {ModuleFederationPlugin} = require('webpack').container;
 
 module.exports = {
     entry: './src/index.js',
     output: {
         filename: '[name].[contenthash].js',
         path: path.resolve(__dirname, './dist'),
-        publicPath:'/static/'
+        publicPath:''
     },
     mode: 'production',
     optimization: {
@@ -68,6 +69,12 @@ module.exports = {
                 decription:'ms-image'
             },
             minify:false
+        }),
+        new ModuleFederationPlugin({
+            name: 'MsImageApp',
+            remotes: {
+                MsButtonApp:'MsButtonApp@http://localhost:9001/remoteEntry.js'
+            }
         })
     ]
 

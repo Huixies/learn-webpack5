@@ -1,6 +1,7 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const {ModuleFederationPlugin} = require('webpack').container;
 
 module.exports = {
     entry: './src/index.js',
@@ -13,7 +14,7 @@ module.exports = {
     devServer: {
         contentBase: path.join(__dirname, './dist'),
         compress: true,  //是否压缩
-        port: 9000,
+        port: 9002,
         open: true,  //自动打开
         hot:true
     },
@@ -58,6 +59,12 @@ module.exports = {
             title: 'ms-image',
             meta: {
                 decription:'ms-image'
+            }
+        }),
+        new ModuleFederationPlugin({
+            name: 'MsImageApp',
+            remotes: {
+                MsButtonApp:'MsButtonApp@http://localhost:9001/remoteEntry.js'
             }
         })
     ]
