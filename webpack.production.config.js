@@ -12,14 +12,14 @@ module.exports = {
     output: {
         filename: '[name].[contenthash].js',
         path: path.resolve(__dirname, './dist'),
-        publicPath:''
+        publicPath:'/static/'
     },
     mode: 'production',
     optimization: {
         splitChunks: {
             chunks: 'all',
             minSize:3000 //小于30kib 单独打包，否则会压缩到对应文件里去
-        }
+        } 
     },
     module: {
         rules: [
