@@ -1,8 +1,9 @@
 import MsButton from './components/ms-button/ms-button.js';
 import MsHeading from './components/ms-heading/heading';
+import React from 'react';
 
 const msHeading = new MsHeading();
-msHeading.render()
+msHeading.render('ms-button');//大写
 const msButton = new MsButton();
 msButton.render()
 
